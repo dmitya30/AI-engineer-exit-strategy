@@ -1,8 +1,8 @@
 
 # Фронтенд — текущее состояние
 
-**Версия:** 1.0
-**Дата:** 31.05.2026
+**Версия:** 1.1
+**Дата:** 01.06.2026
 **Статус:** разработка завершена в первой итерации, сайт в продакшене
 
 ## 1. Архитектура стилей
@@ -26,6 +26,8 @@
 ## 4. Шапка и навигация
 
 Логотип Lora 600, размер через `clamp()`. Меню Inter 500, размер 18px. Цвета: графит → бирюза (активный) → терракота (hover). Решена проблема `rem`-приоритета темы Source через специфичные селекторы `.gh-navigation` + `!important`.
+
+Логотип реализован как `<img src="/content/images/2026/05/logo-full-1.svg">` внутри `.gh-navigation-logo.is-title` (тип шапки is-middle-logo). Alt берётся из Site title — «Квантовая нумерология — расчёты по дате рождения | Тихий Дом». Ограничение `max-height: 44px` задано в Code Injection. Оригинал файла — `logo-full.svg`, в Ghost загружен как `logo-full-1.svg`. Favicon — `favicon.svg`, отдаётся Ghost в формате PNG 256×256 через путь `/content/images/size/w256h256/format/png/2026/05/favicon.svg`. Размер шрифта меню — 18px.
 
 ## 5. Контентные шаблоны (страницы и посты)
 
@@ -59,20 +61,27 @@ Title и excerpt центрированы. Grid `.gh-canvas` от темы Sourc
 
 Яндекс.Метрика (109066888) с webvisor/clickmap/ecommerce. Google Analytics 4 (G-EEJ6Z1C216). Оба в Site Header.
 
-## 11. Что осталось (P1-P2 от оркестратора)
+## 11. Что осталось
 
-- **P0:** Логотип-изображение (SVG готов, нужно подключить через Ghost Admin → Publication identity).
-- **P0:** Favicon (готов, подключается там же).
-- **P0:** Открыть превью в Telegram — сбросить кеш через @WebpageBot.
-- **P1:** FAQ-schema на главной (JSON-LD в Code Injection, +SEO).
-- **P1:** OG-изображения для блога и тегов (проверить, отдельно для постов).
-- **P1:** Кастомная 404 в стиле сайта.
-- **P2:** Ссылка RSS в футере главной.
 - **P2:** Перенести оставшиеся локальные стили на главной в Code Injection (после стабилизации).
+
+Закрыто в v1.1:
+- ✅ Логотип-изображение подключён через Ghost Admin → Publication identity.
+- ✅ Favicon подключён там же.
+- ✅ FAQ-schema на главной (JSON-LD в Code Injection) — выполнено в рамках SEO-блока.
 
 ## 12. Связанные документы
 
 - Дизайн-система и тон: `00-core/brand-and-visual-v1.1.md`.
 - Тексты страниц: `03-content/about-page.md`, `03-content/landing-blocks.md`.
-- SEO-оптимизация: задача в спринте, см. `11-quantocode-30days.md` §5 (зона Дмитрия).
+- Воронка и аналитика (включая 4 цели Метрики и связь с GA4): `05-plan/analytics-funnel.md`.
+- SEO-семантические ядра: `06-frontend/seo-keywords-quantocode.md`, `06-frontend/seo-keywords-mystic-oracle.md`, `06-frontend/seo-keywords-elyor.md`.
+- Спринт: `11-quantocode-30days.md` §5 (зона Дмитрия).
+
+---
+
+## Changelog
+
+- **v1.0 (31.05.2026)** — первичная фиксация состояния фронтенда после завершения разработки первой итерации.
+- **v1.1 (01.06.2026)** — логотип и favicon подключены через Publication identity, SEO-блок выполнен (meta, H1/H2, alt, перелинковка, canonical /home/, Schema.org Organization+WebSite+FAQPage, карточки трёх продуктов). Актуализированы §4 и §11. Добавлены ссылки на ядра и `analytics-funnel.md` в §12.
 
